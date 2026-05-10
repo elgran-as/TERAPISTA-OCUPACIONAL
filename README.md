@@ -1,74 +1,74 @@
-# AAS DEV - Portfolio Web
+# Terapeuta Ocupacional - Sitio Web
 
-Página personal de portafolio para mostrar proyectos y servicios de desarrollo web.
+Sitio web profesional para una terapeuta ocupacional, diseñado para mostrar servicios, metodología y contacto de manera clara y accesible.
 
 ## 📋 Descripción
 
-Este es un proyecto de página web desarrollado como parte de un curso de Frontend. Presenta un portafolio profesional con secciones de presentación, información personal, servicios, galería y formulario de contacto.
+Esta página web presenta una propuesta de sitio para una terapeuta ocupacional que ofrece evaluación funcional, intervenciones personalizadas y adaptaciones del entorno.
 
 ## 🎨 Características
 
-- **Header responsivo** con navegación principal
-- **Sección de inicio** con llamadas a la acción
-- **Sección "Sobre Mí"** con información personal
-- **Sección de Servicios**
-- **Galería** de trabajos/proyectos
-- **Formulario de Contacto**
-- **Diseño responsivo** optimizado para dispositivos móviles
+- **Header fijo** con navegación clara
+- **Hero acogedor** con llamado a la acción
+- **Sección "Sobre Mí"** enfocada en experiencia terapéutica
+- **Servicios** centrados en rehabilitación y autonomía
+- **Galería** con ejemplos visuales de trabajo y espacios terapéuticos
+- **Formulario de contacto** para agendar consultas
+- **Diseño responsivo** para móviles y pantallas grandes
 
 ## 🛠️ Tecnologías Utilizadas
 
 - **HTML5** - Estructura semántica
 - **CSS3** - Estilos y diseño responsivo
-- **JavaScript** - Interactividad
-- **Google Fonts** - Tipografía (Inter y Poppins)
+- **JavaScript** - Actualiza fecha y hora dinámica
+- **Google Fonts** - Tipografía profesional
 
 ## 📁 Estructura del Proyecto
 
 ```
-page/
-├── index.html          # Archivo principal
+AAS-DEV PORTFOLIO/
+├── index.html          # Página principal del sitio
 ├── css/
-│   └── style.css       # Estilos generales
+│   └── style.css       # Estilos del sitio
 ├── js/
-│   └── main.js         # Funcionalidad con JavaScript
-├── images/             # Imágenes del proyecto
-└── README.md           # Este archivo
+│   └── main.js         # Funcionalidad mínima, actualización de fecha
+├── images/             # Imágenes de perfil y galería
+└── README.md           # Documentación del proyecto
 ```
 
 ## 🚀 Cómo Usar
 
-1. Abre el archivo `index.html` en tu navegador web
-2. Navega por las diferentes secciones usando el menú
-3. Personaliza el contenido con tu información
+1. Abre `index.html` en tu navegador.
+2. Revisa las secciones: Inicio, Sobre Mí, Servicios, Galería y Contacto.
+3. Personaliza el contenido y las imágenes según tu práctica profesional.
 
 ## 📝 Secciones Principales
 
-- **Inicio**: Bienvenida y botones de llamada a la acción
-- **Sobre Mí**: Información personal y descripción
-- **Servicios**: Servicios ofrecidos
-- **Galería**: Muestra de trabajos
-- **Contacto**: Formulario para ponerse en contacto
+- **Inicio**: Mensaje principal y botones de acción.
+- **Sobre Mí**: Presenta la terapeuta y su enfoque.
+- **Servicios**: Describe las intervenciones ofrecidas.
+- **Galería**: Muestra imágenes relacionadas con terapia ocupacional.
+- **Contacto**: Formulario para consultas y citas.
 
 ## 💡 Personalización
 
-Para personalizar el proyecto:
+Para adaptar el sitio a tu práctica:
 
-1. Edita el contenido en `index.html`
-2. Modifica los estilos en `css/style.css`
-3. Agrega funcionalidad en `js/main.js`
-4. Reemplaza las imágenes en la carpeta `images/`
+1. Cambia los textos en `index.html`.
+2. Ajusta colores y estilos en `css/style.css`.
+3. Modifica la imagen de perfil y las imágenes de galería en `images/`.
+4. Si querés, añade más secciones o testimonios.
 
 ## 📱 Responsividad
 
-El diseño está optimizado para:
-- 📱 Dispositivos móviles
-- 💻 Tablets
-- 🖥️ Pantallas de escritorio
+El sitio está optimizado para:
+- **Móviles**
+- **Tablets**
+- **Computadoras de escritorio**
 
 ## 📧 Contacto
 
-Para más información, contacta a través del formulario en la página.
+Los usuarios pueden contactarte directamente usando el formulario de la sección de contacto. Personaliza los datos de contacto según tu información profesional.
 
 ---
 
