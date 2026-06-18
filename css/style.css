@@ -11,7 +11,12 @@ body {
     line-height: 1.8;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -55,8 +60,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .seccion-inicio {
-    background: linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(38, 194, 129, 0.88) 100%), 
-                url('../images/fondo-hero.jpg');
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(38, 194, 129, 0.88) 100%),
+        url('../images/fondo-hero.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -378,6 +383,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 40px;
 }
 
+/* ==========================================
+   GENERAL RESPONSIVE
+   ========================================== */
+
 @media (max-width: 1024px) {
     .seccion {
         padding: 50px 0;
@@ -472,5 +481,350 @@ h1, h2, h3, h4, h5, h6 {
 
     .formulario {
         padding: 20px;
+    }
+}
+
+/* ==========================================
+   AGENDA DE TURNOS
+   ========================================== */
+
+#agenda {
+    scroll-margin-top: 120px;
+}
+
+#agenda-container {
+    margin-top: 40px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+}
+
+.tabla-agenda {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tabla-agenda thead th {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: white;
+    padding: 15px;
+    font-size: 0.95rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.tabla-agenda tbody td {
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.hora-columna {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #0f766e;
+}
+
+.libre {
+    background: #ecfdf5;
+    cursor: pointer;
+}
+
+.libre:hover {
+    background: #bbf7d0;
+    transform: scale(1.03);
+}
+
+.ocupado {
+    background: #14b8a6;
+    color: white;
+    font-weight: 600;
+}
+
+.ocupado:hover {
+    background: #0f766e;
+}
+
+.ocupado small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.75rem;
+}
+
+#agenda-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+#agenda-container::-webkit-scrollbar-track {
+    background: #e5e7eb;
+}
+
+#agenda-container::-webkit-scrollbar-thumb {
+    background: #14b8a6;
+    border-radius: 10px;
+}
+
+/* ==========================================
+   MODAL
+   ========================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-contenido {
+    width: 100%;
+    max-width: 650px;
+    background: white;
+    border-radius: 16px;
+    padding: 35px;
+    position: relative;
+    animation: aparecer 0.25s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-contenido h3 {
+    margin-bottom: 25px;
+    color: #0f766e;
+    text-align: center;
+}
+
+.cerrar-modal {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.cerrar-modal:hover {
+    color: #dc2626;
+}
+
+/* ==========================================
+   FORMULARIO DEL MODAL
+   ========================================== */
+
+#formTurno {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#formTurno .campo {
+    margin-bottom: 0;
+}
+
+#formTurno label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #134e4a;
+}
+
+#formTurno input,
+#formTurno textarea,
+#formTurno select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #dbeafe;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+#formTurno input:focus,
+#formTurno textarea:focus,
+#formTurno select:focus {
+    outline: none;
+    border-color: #14b8a6;
+}
+
+#formTurno textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ==========================================
+   MENSAJES
+   ========================================== */
+
+.alerta-exito {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.alerta-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   DETALLE DEL TURNO SELECCIONADO
+   ========================================== */
+
+.turno-info {
+    background: #f0fdfa;
+    border-left: 4px solid #14b8a6;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.turno-info strong {
+    color: #0f766e;
+}
+
+/* ==========================================
+   HEADER RESPONSIVE MENU HAMBURGUESA
+   ========================================== */
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ==========================================
+   RESPONSIVE NAVBAR
+   ========================================== */
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navegacion {
+        width: 100%;
+    }
+
+    .navegacion .menu {
+        display: none !important;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(8px);
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .navegacion .menu.activo {
+        display: flex !important;
+    }
+
+    .navegacion .menu li {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navegacion .menu a {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla-agenda {
+        min-width: 900px;
+    }
+
+    .modal-contenido {
+        padding: 25px;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* ==========================================
+   AGENDA RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+    .tabla-agenda td {
+        min-width: 120px;
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .tabla-agenda th {
+        min-width: 120px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-contenido {
+        padding: 20px;
+    }
+
+    .cerrar-modal {
+        font-size: 28px;
+    }
+
+    .titulo-principal {
+        font-size: 1.2rem;
+    }
+
+    .seccion-inicio h2 {
+        font-size: 1.5rem;
+    }
+
+    .texto-destacado {
+        font-size: 1rem;
+    }
+
+    .boton {
+        width: 100%;
+    }
+
+    .card {
+        min-width: 100%;
     }
 }
