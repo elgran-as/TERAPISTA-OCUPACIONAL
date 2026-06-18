@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Terapista Ocupacional</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self';">
+    <title>Terapista Ocupacional</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -147,19 +151,19 @@
                 <form class="formulario">
                     <div class="campo">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required maxlength="100" autocomplete="name" pattern="[A-Za-zÀ-ÿ\s'\-]{2,100}">
                     </div>
                     <div class="campo">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required maxlength="254" autocomplete="email">
                     </div>
                     <div class="campo">
                         <label for="telefono">Teléfono:</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="(011) 1234-5678">
+                        <input type="tel" id="telefono" name="telefono" placeholder="(011) 1234-5678" maxlength="20" autocomplete="tel" pattern="[0-9()\-\+\s]{7,20}">
                     </div>
                     <div class="campo">
                         <label for="mensaje">¿En qué te gustaría avanzar?</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe tus objetivos o inquietudes" required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe tus objetivos o inquietudes" required maxlength="2000"></textarea>
                     </div>
                     <div class="campo">
                         <label>Modalidad preferida:</label>
