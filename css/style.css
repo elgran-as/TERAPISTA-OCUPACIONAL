@@ -378,6 +378,43 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 40px;
 }
 
+/* --- Form feedback messages --- */
+.form-feedback {
+    margin-top: 20px;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-feedback--success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+
+.form-feedback--error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+/* --- Image fallback placeholder --- */
+.img-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 200px;
+    background-color: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    color: #64748b;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 20px;
+}
+
 @media (max-width: 1024px) {
     .seccion {
         padding: 50px 0;
