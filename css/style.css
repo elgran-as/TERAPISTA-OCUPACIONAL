@@ -1,13 +1,68 @@
+/* ============================================
+   CSS Custom Properties — single source of truth
+   for colors, shadows, radii, transitions, and
+   spacing that were previously duplicated across
+   many selectors.
+   ============================================ */
+:root {
+    /* Colors */
+    --color-primary: #0f766e;
+    --color-primary-light: #1cc5a6;
+    --color-accent: #3b82f6;
+    --color-accent-purple: #8b5cf6;
+    --color-warning: #fbbf24;
+    --color-text: #134e4a;
+    --color-text-muted: #333;
+    --color-bg-light: #eef7f5;
+    --color-bg-section-light: #ffffff;
+    --color-bg-section-dark: #e7f5f2;
+    --color-footer-bg: #333;
+
+    /* Shadows (previously copy-pasted across 8+ selectors) */
+    --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --shadow-header: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
+    --shadow-btn-hover: 0 6px 12px rgba(15, 118, 110, 0.35);
+
+    /* Border radii (previously 3 repeated tiers) */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Transition (same timing reused in 5+ rules) */
+    --transition-speed: 0.3s;
+    --transition-ease: ease;
+    --transition-base: var(--transition-speed) var(--transition-ease);
+
+    /* Gradients */
+    --gradient-header: linear-gradient(135deg, var(--color-primary) 0%, #38bdf8 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(38, 194, 129, 0.88) 100%);
+    --gradient-primary-btn: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    --gradient-table-header: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-purple) 100%);
+
+    /* Layout */
+    --container-max-width: 1200px;
+    --panel-max-width: 600px;
+}
+
+/* ============================================
+   Reset
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ============================================
+   Base
+   ============================================ */
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #eef7f5;
-    color: #134e4a;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
     line-height: 1.8;
 }
 
@@ -15,20 +70,54 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ============================================
+   Shared layout utilities
+   (extracted from 6 selectors that all repeated
+   display:flex + gap + flex-wrap)
+   ============================================ */
 .container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 20px;
 }
 
+.flex-row {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Shared "white panel" pattern — replaces identical
+   background + radius + shadow on .detalles,
+   .barras-progreso, .formulario, and .card */
+.panel {
+    background: var(--color-bg-section-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.panel--lg {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.panel--centered {
+    max-width: var(--panel-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   Header
+   ============================================ */
 #header {
-    background: linear-gradient(135deg, #0f766e 0%, #38bdf8 100%);
+    background: var(--gradient-header);
     color: white;
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-header);
 }
 
 .titulo-principal {
@@ -47,15 +136,18 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color var(--transition-base);
 }
 
 .navegacion .menu a:hover {
-    color: #fbbf24;
+    color: var(--color-warning);
 }
 
+/* ============================================
+   Hero
+   ============================================ */
 .seccion-inicio {
-    background: linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(38, 194, 129, 0.88) 100%), 
+    background: var(--gradient-hero),
                 url('../images/fondo-hero.jpg');
     background-size: cover;
     background-position: center;
@@ -84,6 +176,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: auto;
 }
 
+/* ============================================
+   Sections
+   ============================================ */
 .seccion {
     padding: 60px 0;
 }
@@ -92,17 +187,20 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
     margin-bottom: 30px;
     text-align: center;
-    color: #0f766e;
+    color: var(--color-primary);
 }
 
 .seccion-clara {
-    background-color: #ffffff;
+    background-color: var(--color-bg-section-light);
 }
 
 .seccion-oscura {
-    background-color: #e7f5f2;
+    background-color: var(--color-bg-section-dark);
 }
 
+/* ============================================
+   Content layout
+   ============================================ */
 .contenido-flex {
     display: flex;
     gap: 40px;
@@ -122,10 +220,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .imagen img {
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
 }
 
+/* ============================================
+   Inline utility classes
+   ============================================ */
 .alineado-centrado {
     text-align: center;
 }
@@ -142,6 +243,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+/* ============================================
+   Cards (services)
+   ============================================ */
 .cards {
     display: flex;
     gap: 30px;
@@ -150,26 +254,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card {
-    background: white;
+    background: var(--color-bg-section-light);
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     flex: 1;
     min-width: 250px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .card h3 {
-    color: #0f766e;
+    color: var(--color-primary);
     margin-bottom: 15px;
 }
 
+/* ============================================
+   Gallery
+   ============================================ */
 .grid-imagenes {
     display: flex;
     gap: 20px;
@@ -184,20 +291,26 @@ h1, h2, h3, h4, h5, h6 {
 
 .item-galeria img {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base);
 }
 
 .item-galeria img:hover {
     transform: scale(1.05);
 }
 
+/* ============================================
+   Methodology columns
+   ============================================ */
 .columna {
     flex: 1;
     min-width: 250px;
 }
 
+/* ============================================
+   Styled list
+   ============================================ */
 .lista-estilizada {
     list-style: none;
     padding-left: 0;
@@ -205,20 +318,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .lista-estilizada li {
     padding: 10px 15px;
-    background: white;
+    background: var(--color-bg-section-light);
     margin-bottom: 8px;
-    border-radius: 6px;
-    border-left: 4px solid #3b82f6;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--color-accent);
 }
 
+/* ============================================
+   Table
+   ============================================ */
 .tabla-estilizada {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background: white;
-    border-radius: 8px;
+    background: var(--color-bg-section-light);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 .tabla-estilizada th,
@@ -229,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tabla-estilizada th {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    background: var(--gradient-table-header);
     color: white;
 }
 
@@ -237,13 +353,13 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #f9f9f9;
 }
 
+/* ============================================
+   Contact form — uses .panel utility
+   ============================================ */
 .formulario {
-    max-width: 600px;
+    max-width: var(--panel-max-width);
     margin: 0 auto;
-    background: white;
     padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .campo {
@@ -254,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #333;
+    color: var(--color-text-muted);
 }
 
 .campo input[type="text"],
@@ -263,9 +379,9 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     padding: 12px 15px;
     border: 2px solid #ddd;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color var(--transition-base);
 }
 
 .campo input:focus,
@@ -287,6 +403,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
 }
 
+/* ============================================
+   Buttons
+   ============================================ */
 .botones,
 .botones-form {
     display: flex;
@@ -298,58 +417,53 @@ h1, h2, h3, h4, h5, h6 {
 .boton {
     display: inline-block;
     padding: 12px 30px;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
     border: none;
     font-size: 1rem;
 }
 
 .boton-primario {
-    background: linear-gradient(135deg, #0f766e 0%, #1cc5a6 100%);
+    background: var(--gradient-primary-btn);
     color: white;
 }
 
 .boton-primario:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(15, 118, 110, 0.35);
+    box-shadow: var(--shadow-btn-hover);
 }
 
 .boton-secundario {
-    background: white;
-    color: #0f766e;
-    border: 2px solid #0f766e;
+    background: var(--color-bg-section-light);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
 }
 
 .boton-secundario:hover {
-    background: #0f766e;
+    background: var(--color-primary);
     color: white;
 }
 
+/* ============================================
+   Details & progress — use .panel utility
+   ============================================ */
 .detalles {
-    max-width: 600px;
-    margin: 30px auto;
-    background: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
 }
 
 .detalles summary {
     cursor: pointer;
     font-weight: 600;
-    color: #3b82f6;
+    color: var(--color-accent);
 }
 
 .barras-progreso {
-    max-width: 600px;
-    margin: 30px auto;
-    background: white;
     padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
 }
 
 .progreso-item {
@@ -370,14 +484,20 @@ h1, h2, h3, h4, h5, h6 {
     height: 24px;
 }
 
+/* ============================================
+   Footer
+   ============================================ */
 #footer {
-    background-color: #333;
+    background-color: var(--color-footer-bg);
     color: white;
     text-align: center;
     padding: 30px 0;
     margin-top: 40px;
 }
 
+/* ============================================
+   Responsive
+   ============================================ */
 @media (max-width: 1024px) {
     .seccion {
         padding: 50px 0;

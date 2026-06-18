@@ -52,43 +52,19 @@
             </div>
         </section>
 
+        <!-- Cards are rendered by JS from SERVICIOS data -->
         <section id="servicios" class="seccion seccion-oscura">
             <div class="container">
                 <h2>Servicios</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>Evaluación Funcional</h3>
-                        <p>Valoración de habilidades motoras, cognitivas y sensoriales para diseñar un plan de intervención efectivo.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Intervención Personalizada</h3>
-                        <p>Sesiones individuales y familiares para promover la autonomía en actividades de la vida diaria.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Adaptaciones del Entorno</h3>
-                        <p>Recomendaciones para adaptar el hogar, la escuela o el trabajo y mejorar la independencia.</p>
-                    </div>
-                </div>
+                <div class="cards"></div>
             </div>
         </section>
 
+        <!-- Gallery items rendered by JS from GALERIA data -->
         <section id="galeria" class="seccion seccion-clara">
             <div class="container">
                 <h2>Galería</h2>
-                <div class="grid-imagenes">
-                    <div class="item-galeria">
-                        <img src="images/galeria1.jpg" alt="Sesión de terapia ocupacional">
-                    </div>
-                    <div class="item-galeria">
-                        <img src="images/galeria2.jpg" alt="Actividad manual terapéutica">
-                    </div>
-                    <div class="item-galeria">
-                        <img src="images/galeria3.jpg" alt="Espacio de trabajo adaptado">
-                    </div>
-                    <div class="item-galeria">
-                        <img src="images/galeria4.jpg" alt="Intervención en taller ocupacional">
-                    </div>
-                </div>
+                <div class="grid-imagenes"></div>
             </div>
         </section>
 
@@ -111,6 +87,7 @@
                     </div>
                 </div>
 
+                <!-- Table rows rendered by JS from ESPECIALIDADES data -->
                 <h3>Especialidades</h3>
                 <table class="tabla-estilizada">
                     <thead>
@@ -120,23 +97,7 @@
                             <th>Beneficio</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Niñez</td>
-                            <td>Desarrollo de motricidad fina y coordinación</td>
-                            <td>Mejora del desempeño escolar y la independencia</td>
-                        </tr>
-                        <tr>
-                            <td>Adultos</td>
-                            <td>Rehabilitación tras lesiones o condiciones crónicas</td>
-                            <td>Recuperación funcional y mayor autonomía</td>
-                        </tr>
-                        <tr>
-                            <td>Adultos mayores</td>
-                            <td>Adaptación del hogar y rutinas diarias</td>
-                            <td>Más seguridad y calidad de vida</td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
@@ -144,7 +105,9 @@
         <section id="contacto" class="seccion seccion-clara">
             <div class="container">
                 <h2>Contacto</h2>
-                <form class="formulario">
+                <!-- .panel .panel--lg .panel--centered replace duplicated
+                     background/border-radius/shadow on the form wrapper -->
+                <form class="formulario panel panel--lg panel--centered">
                     <div class="campo">
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
@@ -174,12 +137,12 @@
                     </div>
                 </form>
 
-                <details class="detalles">
+                <details class="detalles panel panel--centered">
                     <summary>Más Información</summary>
                     <p>Ofrezco un espacio cálido y adaptado. También elaboro informes de evaluación y planes personalizados para escuelas y hogares.</p>
                 </details>
 
-                <div class="barras-progreso">
+                <div class="barras-progreso panel panel--centered">
                     <div class="progreso-item">
                         <span>Empatía</span>
                         <progress value="95" max="100"></progress>
@@ -200,6 +163,8 @@
         </div>
     </footer>
 
+    <script src="js/dom-utils.js"></script>
+    <script src="js/site-data.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
