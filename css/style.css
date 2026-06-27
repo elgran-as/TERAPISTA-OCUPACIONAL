@@ -235,17 +235,104 @@ h1, h2, h3, h4, h5, h6 {
 .item-galeria {
     flex: 1;
     min-width: 280px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
 }
 
 .item-galeria img {
     width: 100%;
+    height: 280px;
+    object-fit: cover;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-normal);
+    cursor: pointer;
+    display: block;
 }
 
 .item-galeria img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+}
+
+/* Modal de Galería */
+.modal-galeria {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-galeria.activo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-galeria-contenido {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-galeria img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+}
+
+.cerrar-modal-galeria {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background var(--transition-fast);
+    z-index: 10;
+}
+
+.cerrar-modal-galeria:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Listas y Tablas Estilizadas */
@@ -592,6 +679,41 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================
    MEDIA QUERIES (Diseño Adaptativo)
    ========================================== */
+
+/* DESKTOP - PC y Notebook (1025px y más) */
+@media (min-width: 1025px) {
+    * {
+        text-align: center;
+    }
+    
+    /* Mantener alineación izquierda para elementos específicos si es necesario */
+    .tabla-agenda { text-align: left; }
+    .tabla-agenda td { text-align: center; }
+    .lista-estilizada { text-align: left; }
+    .modal-contenido { text-align: center; }
+    .formulario .campo label { text-align: left; }
+    .formulario input, .formulario select, .formulario textarea { text-align: left; }
+}
+
+/* TABLET (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .seccion { padding: 50px 0; }
+    .seccion-inicio { padding: 70px 0; }
+    .seccion-inicio h2 { font-size: 2.2rem; }
+    
+    * {
+        text-align: center;
+    }
+    
+    .tabla-agenda { text-align: left; }
+    .tabla-agenda td { text-align: center; }
+    .lista-estilizada { text-align: left; }
+    .modal-contenido { text-align: center; }
+    .formulario .campo label { text-align: left; }
+    .formulario input, .formulario select, .formulario textarea { text-align: left; }
+}
+
+/* TODOS LOS TAMAÑOS ANTERIORES */
 @media (max-width: 1024px) {
     .seccion { padding: 50px 0; }
     .seccion-inicio { padding: 70px 0; }
