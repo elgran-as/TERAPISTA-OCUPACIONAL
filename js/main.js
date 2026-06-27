@@ -469,6 +469,42 @@ function cerrarModalCarrito() {
 }
 
 /* ==========================================================================
+   FUNCIONES PARA GALERÍA DE FOTOS
+   ========================================================================== */
+function abrirModalGaleria(event) {
+    const imagenSrc = event.target.src;
+    const imagenAlt = event.target.alt;
+    
+    const modal = document.getElementById("modalGaleria");
+    const imagenGrande = document.getElementById("imagenGrandeGaleria");
+    
+    if (modal && imagenGrande) {
+        imagenGrande.src = imagenSrc;
+        imagenGrande.alt = imagenAlt;
+        modal.classList.add("activo");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function cerrarModalGaleria() {
+    const modal = document.getElementById("modalGaleria");
+    if (modal) {
+        modal.classList.remove("activo");
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Cerrar galería con tecla Escape
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        const modalGaleria = document.getElementById("modalGaleria");
+        if (modalGaleria?.classList.contains("activo")) {
+            cerrarModalGaleria();
+        }
+    }
+});
+
+/* ==========================================================================
    CONSUMO ASÍNCRONO DE APIS (FETCH WEATHER)
    ========================================================================== */
 async function cargarClima() {
@@ -503,12 +539,19 @@ function inicializarEventosGenerales() {
     document.getElementById("cerrarModal")?.addEventListener("click", cerrarModal);
     document.getElementById("cerrarModalSeleccion")?.addEventListener("click", cerrarModalSeleccion);
     document.getElementById("cerrarModalCarrito")?.addEventListener("click", cerrarModalCarrito);
+    document.getElementById("cerrarModalGaleria")?.addEventListener("click", cerrarModalGaleria);
     document.getElementById("btnContinuarSeleccion")?.addEventListener("click", continuarSeleccion);
 
     window.addEventListener("click", (e) => {
         if (e.target === document.getElementById("modalTurno")) cerrarModal();
         if (e.target === document.getElementById("modalSeleccion")) cerrarModalSeleccion();
         if (e.target === document.getElementById("modalCarrito")) cerrarModalCarrito();
+        if (e.target === document.getElementById("modalGaleria")) cerrarModalGaleria();
+    });
+
+    // Galería: Agregar listeners a las imágenes
+    document.querySelectorAll(".item-galeria img").forEach(img => {
+        img.addEventListener("click", abrirModalGaleria);
     });
 
     // Control de envío del formulario (Carrito)
