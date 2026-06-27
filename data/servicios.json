@@ -1,0 +1,50 @@
+{
+  "evaluacion": [
+    "Evaluaciones funcionales de la vida diaria",
+    "Valoraciones de independencia en actividades cotidianas",
+    "Consultas de orientación para familias y cuidadores",
+    "Segunda opinión profesional sobre planes de intervención",
+    "Evaluaciones ergonómicas para trabajo desde casa o en oficina"
+  ],
+  "terapeuticos": [
+    "Sesiones individuales de terapia ocupacional",
+    "Programas para niños con dificultades de desarrollo",
+    "Intervención en integración sensorial",
+    "Rehabilitación de adultos tras lesiones o enfermedades",
+    "Terapia para personas mayores (autonomía y prevención de caídas)",
+    "Entrenamiento en actividades cotidianas (vestido, higiene, alimentación)"
+  ],
+  "online": [
+    "Programas de estimulación cognitiva",
+    "Entrenamiento en habilidades ejecutivas (organización, planificación)",
+    "Talleres para manejo del estrés y equilibrio ocupacional",
+    "Programas para mejorar hábitos y rutinas saludables",
+    "Seguimiento virtual (con evaluación inicial previa)"
+  ],
+  "empresas": [
+    "Evaluaciones ergonómicas corporativas",
+    "Capacitación en prevención de lesiones laborales",
+    "Programas de bienestar ocupacional",
+    "Asesoría para inclusión laboral de personas con discapacidad"
+  ],
+  "familias": [
+    "Escuela para padres",
+    "Capacitación a cuidadores de adultos mayores",
+    "Guías para adaptación segura del hogar",
+    "Asesoramiento para favorecer la independencia"
+  ],
+  "productos": [
+    "Guías descargables en PDF",
+    "Cuadernos de ejercicios cognitivos",
+    "Planificadores de rutinas",
+    "Materiales de estimulación para niños",
+    "Checklists para cuidadores",
+    "Cursos grabados / Webinars",
+    "Membresías con contenido exclusivo"
+  ],
+  "suscripciones": [
+    "Acceso mensual a recursos descargables",
+    "Charlas mensuales en vivo y Comunidad privada",
+    "Seguimiento grupal y rutinas nuevas cada mes"
+  ]
+}

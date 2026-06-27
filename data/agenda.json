@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "paciente": "Juan Pérez",
+        "dia": "Martes",
+        "hora": "10:30",
+        "modalidad": "Presencial"
+    },
+    {
+        "id": 2,
+        "paciente": "Ana Gómez",
+        "dia": "Jueves",
+        "hora": "11:00",
+        "modalidad": "Online"
+    }
+]
