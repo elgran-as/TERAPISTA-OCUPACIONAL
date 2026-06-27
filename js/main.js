@@ -8,8 +8,9 @@ const DIAS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 // Bloques horarios optimizados para sesiones de 45 minutos
 const HORAS = [
     "08:00", "08:45", "09:30", "10:15", "11:00", "11:45", 
-    "12:30", "13:15", "14:00", "14:45", "15:30", "16:15"
+    "12:30", "14:00", "14:45", "15:30", "16:15"
 ];
+// Nota: 13:15 está bloqueado para almuerzo
 
 // Base de datos indexada para el árbol de categorías y servicios
 const DATA_SERVICIOS = {
